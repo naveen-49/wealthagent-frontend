@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexgile WealthAgent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="login-page">
+        <div class="login-container">
+
+            <h1>Nexgile WealthAgent</h1>
+            <p>Sign in to your account</p>
+
+            <form id="login-form">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+                <p>
+                    Don't have an account?
+                    <a href="#" id="show-register">Register</a>
+                </p>
+
+            </form>
+
+            <p id="login-error"></p>
+
+        </div>
+    </div>
+
+
+    <!-- REGISTRATION PAGE -->
+    <div id="register-page" style="display: none;">
+
+        <div class="login-container">
+
+            <h1>Create Account</h1>
+
+            <p>Register for Nexgile WealthAgent</p>
+
+            <form id="register-form">
+
+                <input
+                    type="text"
+                    id="register-name"
+                    placeholder="Full Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="register-email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="register-password"
+                    placeholder="Password"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="register-confirm-password"
+                    placeholder="Confirm Password"
+                    required
+                >
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+            <p id="register-error"></p>
+
+            <p>
+                Already have an account?
+                <a href="#" id="show-login">
+                    Login
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboard-page" style="display: none;">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <span class="brand-icon">✦</span>
+                Nexgile
+            </div>
+
+            <p class="menu-title">MENU</p>
+
+            <nav>
+
+                <a href="#dashboard" class="active">
+                    <span>▣</span>
+                    Dashboard
+                </a>
+
+                <a href="#holdings-container">
+                    <span>▤</span>
+                    Investments
+                </a>
+
+                <a href="#recommendation-container">
+                    <span>▥</span>
+                    Reports
+                </a>
+
+                <a href="#transactions-container">
+                    <span>⇄</span>
+                    Transactions
+                </a>
+
+                <a href="#risk-section">
+                    <span>◈</span>
+                    Security
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="#">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+                <a href="#">
+                    <span>?</span>
+                    Customer Support
+                </a>
+
+
+                <div class="user-box">
+
+                    <div class="profile-circle" id="top-profile-avatar">
+    N
+</div>
+
+                    <div>
+                        <strong id="sidebar-user-name">
+                            User
+                        </strong>
+
+                        <small>
+                            Client Account
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <div class="dashboard-content">
+
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Welcome back to your financial overview
+                    </p>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="icon-button">
+                        ◔
+                    </button>
+
+                    <button class="icon-button">
+                        ♧
+                    </button>
+
+                    <div class="profile-circle">
+                        N
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <main id="dashboard">
+
+
+                <!-- WELCOME -->
+                <section class="welcome-section">
+
+                    <h2>
+                        Welcome,
+                        <span id="client-name"></span>
+                    </h2>
+
+                    <p>
+                        Here is your financial summary.
+                    </p>
+
+                </section>
+
+
+                <!-- FINANCIAL SUMMARY -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Financial Summary
+                        </h2>
+
+                        <span class="period-badge">
+                            Overview
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-container">
+
+
+                        <div class="summary-card">
+
+                            <div class="card-top">
+
+                                <span>
+                                    Cash Balance
+                                </span>
+
+                                <span class="card-icon">
+                                    ₹
+                                </span>
+
+                            </div>
+
+                            <p id="cash">
+                                ₹0
+                            </p>
+
+                            <small>
+                                Available cash
+                            </small>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <div class="card-top">
+
+                                <span>
+                                    Portfolio Value
+                                </span>
+
+                                <span class="card-icon">
+                                    ▤
+                                </span>
+
+                            </div>
+
+                            <p id="portfolio-value">
+                                ₹0
+                            </p>
+
+                            <small>
+                                Total investment value
+                            </small>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <div class="card-top">
+
+                                <span>
+                                    Total Assets
+                                </span>
+
+                                <span class="card-icon">
+                                    ◈
+                                </span>
+
+                            </div>
+
+                            <p id="total-assets">
+                                ₹0
+                            </p>
+
+                            <small>
+                                Your total financial assets
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- RISK PROFILE -->
+                <section id="risk-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Risk Profile
+                        </h2>
+
+                    </div>
+
+
+                    <div class="risk-card">
+
+                        <div class="risk-header">
+
+                            <div>
+
+                                <h3>
+                                    Your Risk Assessment
+                                </h3>
+
+                                <p>
+                                    Based on your financial risk profile
+                                </p>
+
+                            </div>
+
+
+                            <div class="risk-badge">
+
+                                ● Active
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="risk-details">
+
+                            <div>
+
+                                <span>
+                                    Risk Score
+                                </span>
+
+                                <strong id="risk-score">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Risk Category
+                                </span>
+
+                                <strong id="risk-category">
+                                    -
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- RISK ASSESSMENT FORM -->
+<div class="risk-assessment-form">
+    <h3>Complete Your Risk Assessment</h3>
+
+    <form id="risk-assessment-form">
+
+        <div class="risk-question">
+            <p>1. What is your investment experience?</p>
+
+            <label><input type="radio" name="risk-q1" value="0"> No experience</label>
+            <label><input type="radio" name="risk-q1" value="5"> Limited experience</label>
+            <label><input type="radio" name="risk-q1" value="10"> Some experience</label>
+            <label><input type="radio" name="risk-q1" value="15"> Extensive experience</label>
+        </div>
+
+        <div class="risk-question">
+            <p>2. What would you do if your investment lost 20%?</p>
+
+            <label><input type="radio" name="risk-q2" value="0"> Sell immediately</label>
+            <label><input type="radio" name="risk-q2" value="5"> Wait and observe</label>
+            <label><input type="radio" name="risk-q2" value="10"> Continue holding</label>
+            <label><input type="radio" name="risk-q2" value="15"> Invest more</label>
+        </div>
+
+        <div class="risk-question">
+            <p>3. What is your investment time horizon?</p>
+
+            <label><input type="radio" name="risk-q3" value="0"> Less than 1 year</label>
+            <label><input type="radio" name="risk-q3" value="5"> 1–3 years</label>
+            <label><input type="radio" name="risk-q3" value="10"> 3–5 years</label>
+            <label><input type="radio" name="risk-q3" value="15"> More than 5 years</label>
+        </div>
+
+        <div class="risk-question">
+            <p>4. What is your primary financial goal?</p>
+
+            <label><input type="radio" name="risk-q4" value="0"> Protect my money</label>
+            <label><input type="radio" name="risk-q4" value="5"> Balanced growth</label>
+            <label><input type="radio" name="risk-q4" value="10"> Long-term growth</label>
+            <label><input type="radio" name="risk-q4" value="15"> Maximum growth</label>
+        </div>
+
+        <div class="risk-question">
+            <p>5. How stable is your income?</p>
+
+            <label><input type="radio" name="risk-q5" value="0"> Unstable</label>
+            <label><input type="radio" name="risk-q5" value="5"> Somewhat stable</label>
+            <label><input type="radio" name="risk-q5" value="10"> Stable</label>
+            <label><input type="radio" name="risk-q5" value="15"> Very stable</label>
+        </div>
+
+        <div class="risk-question">
+            <p>6. How much emergency savings do you have?</p>
+
+            <label><input type="radio" name="risk-q6" value="0"> No emergency savings</label>
+            <label><input type="radio" name="risk-q6" value="5"> Less than 3 months</label>
+            <label><input type="radio" name="risk-q6" value="10"> 3–6 months</label>
+            <label><input type="radio" name="risk-q6" value="15"> More than 6 months</label>
+        </div>
+
+        <div class="risk-question">
+            <p>7. How comfortable are you with investment losses?</p>
+
+            <label><input type="radio" name="risk-q7" value="0"> Very uncomfortable</label>
+            <label><input type="radio" name="risk-q7" value="5"> Slightly uncomfortable</label>
+            <label><input type="radio" name="risk-q7" value="10"> Moderately comfortable</label>
+            <label><input type="radio" name="risk-q7" value="15"> Very comfortable</label>
+        </div>
+
+        <button type="submit" class="btn-primary">
+            Submit Risk Assessment
+        </button>
+
+        <p id="risk-assessment-message"></p>
+
+    </form>
+</div>
+                </section>
+                <!-- FINANCIAL GOALS -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Financial Goals
+                        </h2>
+
+                        <span class="period-badge">
+                            Your targets
+                        </span>
+
+                    </div>
+
+                       <div class="goal-form-card">
+
+    <h3>Create Financial Goal</h3>
+
+    <form id="goal-form">
+
+        <div class="form-group">
+            <label for="goal-name">Goal Name</label>
+
+            <input
+                type="text"
+                id="goal-name"
+                placeholder="Example: Emergency Fund"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="goal-target-amount">
+                Target Amount (₹)
+            </label>
+
+            <input
+                type="number"
+                id="goal-target-amount"
+                placeholder="Example: 100000"
+                min="1"
+                step="0.01"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="goal-current-amount">
+                Current Amount (₹)
+            </label>
+
+            <input
+                type="number"
+                id="goal-current-amount"
+                placeholder="Example: 10000"
+                min="0"
+                step="0.01"
+                value="0"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="goal-target-date">
+                Target Date
+            </label>
+
+            <input
+                type="date"
+                id="goal-target-date"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="goal-priority">Priority</label>
+
+            <select id="goal-priority">
+
+                <option value="LOW">Low</option>
+                <option value="MEDIUM" selected>Medium</option>
+                <option value="HIGH">High</option>
+
+            </select>
+        </div>
+
+        <button type="submit">
+            Create Goal
+        </button>
+
+        <p id="goal-form-message"></p>
+
+    </form>
+
+</div>
+                    <div id="goals-container">
+
+                        <!-- Goals inserted by JavaScript -->
+
+                    </div>
+
+                </section>
+
+
+                <!-- WEALTH RECOMMENDATION -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Wealth Recommendation
+                        </h2>
+
+                        <span class="period-badge">
+                            AI Insights
+                        </span>
+
+                    </div>
+
+
+                    <div id="recommendation-container">
+
+                        <p>
+                            Loading recommendation...
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PORTFOLIO HOLDINGS -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Portfolio Holdings
+                        </h2>
+
+                        <span class="period-badge">
+                            Investments
+                        </span>
+
+                    </div>
+
+
+                    <div id="holdings-container">
+
+                        <!-- Holdings inserted by JavaScript -->
+
+                    </div>
+                    <!-- Portfolio Section -->
+<section class="dashboard-card">
+    <h2>My Portfolio</h2>
+
+    <div id="portfolio-container">
+        <p>Loading portfolio...</p>
+    </div>
+</section>
+                </section>
+
+
+                <!-- TRANSACTION ACTIONS -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Transaction Actions
+                        </h2>
+
+                    </div>
+
+
+                    <div class="transaction-form-card">
+
+
+                        <div class="form-row">
+
+
+                            <!-- TRANSACTION TYPE -->
+                            <div class="form-group">
+
+                                <label for="transaction-type">
+
+                                    Transaction Type
+
+                                </label>
+
+
+                                <select id="transaction-type">
+
+                                    <option value="DEPOSIT">
+                                        Deposit
+                                    </option>
+
+                                    <option value="WITHDRAWAL">
+                                        Withdrawal
+                                    </option>
+
+                                    <option value="BUY">
+                                        Buy
+                                    </option>
+
+                                    <option value="SELL">
+                                        Sell
+                                    </option>
+
+                                    <option value="DIVIDEND">
+                                        Dividend
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- ACCOUNT INFORMATION -->
+                            <div class="form-group">
+
+                                <label for="transaction-account-display">
+
+                                    Account
+
+                                </label>
+
+
+                                <!-- Visible account information -->
+                                <input
+    type="text"
+    id="transaction-account-display"
+    value="Loading account..."
+    readonly
+>
+
+<input
+    type="hidden"
+    id="transaction-account"
+    value=""
+>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- HOLDING FIELDS -->
+                        <div
+                            id="holding-fields"
+                            class="form-group"
+                        >
+
+                            <label for="transaction-holding">
+
+                                Holding ID
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="transaction-holding"
+                                value="1"
+                                min="1"
+                            >
+
+                        </div>
+
+
+                        <!-- QUANTITY FIELD -->
+                        <div
+                            id="quantity-field"
+                            class="form-group"
+                        >
+
+                            <label for="transaction-quantity">
+
+                                Quantity
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="transaction-quantity"
+                                step="0.01"
+                                min="0"
+                            >
+
+                        </div>
+
+
+                        <!-- PRICE FIELD -->
+                        <div
+                            id="price-field"
+                            class="form-group"
+                        >
+
+                            <label for="transaction-price">
+
+                                Price
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="transaction-price"
+                                step="0.01"
+                                min="0"
+                            >
+
+                        </div>
+
+
+                        <!-- AMOUNT FIELD -->
+                        <div class="form-group">
+
+                            <label for="transaction-amount">
+
+                                Amount
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="transaction-amount"
+                                step="0.01"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- SUBMIT BUTTON -->
+                        <button
+                            type="button"
+                            id="transaction-button"
+                            class="primary-button"
+                        >
+
+                            Submit Transaction
+
+                        </button>
+
+
+                        <p id="transaction-message"></p>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- RECENT TRANSACTIONS -->
+                <section>
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Recent Transactions
+                        </h2>
+
+                    </div>
+
+
+                    <div id="transactions-container">
+
+                        <!-- Transactions inserted by JavaScript -->
+
+                    </div>
+
+                </section>
+
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
