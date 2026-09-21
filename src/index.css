@@ -1,9 +1,1240 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
+
+/* =========================================
+   NEXGILE WEALTHAGENT - CLEAN UI
+========================================= */
+
+:root {
+  --primary: #5b5ce2;
+  --primary-dark: #4546c7;
+  --primary-light: #efefff;
+  --background: #f6f7fb;
+  --white: #ffffff;
+  --text: #202238;
+  --muted: #85899f;
+  --border: #e8e9f1;
+  --green: #16a36f;
+  --green-light: #e8f8f0;
+  --red: #e04f5f;
+  --red-light: #fff0f1;
+  --shadow: 0 4px 20px rgba(38, 42, 80, 0.05);
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================
+   LOGIN AND REGISTRATION
+========================================= */
+
+#login-page,
+#register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+#login-page {
+  background: linear-gradient(135deg, #f3f4ff, #e8eaff);
+}
+
+#register-page {
+  background: linear-gradient(135deg, #10152f, #303878);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 410px;
+  padding: 38px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(25, 30, 70, 0.12);
+}
+
+.login-container h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: var(--text);
+}
+
+.login-container p {
+  margin-bottom: 25px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#login-form input,
+#register-page input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafaff;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#login-form input:focus,
+#register-page input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91, 92, 226, 0.12);
+  background: var(--white);
+}
+
+#login-form button,
+#register-page button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+#login-form button:hover,
+#register-page button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+#login-error,
+#register-error {
+  margin-top: 14px;
+  color: var(--red);
+  font-size: 13px;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+#dashboard-page {
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 245px;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  z-index: 100;
+}
+
+.brand {
+  padding: 10px 12px;
+  margin-bottom: 42px;
+  color: var(--text);
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.brand-icon {
+  color: var(--primary);
+  margin-right: 8px;
+}
+
+.menu-title {
+  margin: 0 12px 15px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: #6d7188;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.user-avatar,
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.user-box strong {
+  display: block;
+  font-size: 13px;
+}
+
+.user-box small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.logout-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 9px;
+  background: var(--red);
+  color: white;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #c93649;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.dashboard-content {
+  min-height: 100vh;
+  margin-left: 245px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 42px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 {
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.topbar p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: white;
+  color: var(--text);
+}
+
+.icon-button:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  padding: 35px 42px;
+}
+
+.welcome-section {
+  margin-bottom: 30px;
+}
+
+.welcome-section h2 {
+  margin-bottom: 6px;
+  font-size: 28px;
+}
+
+.welcome-section p {
+  color: var(--muted);
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+  margin-bottom: 32px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+}
+
+.period-badge {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(38, 42, 80, 0.08);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.summary-card p {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 27px;
+  font-weight: 750;
+}
+
+.summary-card small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================
+   COMMON CARDS
+========================================= */
+
+.risk-card,
+.goal-card,
+.transaction-form-card,
+#recommendation-container {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.risk-header h3 {
+  margin-bottom: 6px;
+}
+
+.risk-header p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.risk-badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 12px;
+}
+
+.risk-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding-top: 20px;
+  margin-top: 25px;
+  border-top: 1px solid var(--border);
+}
+
+.risk-details span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.risk-details strong {
+  font-size: 19px;
+}
+
+/* =========================================
+   FINANCIAL GOALS
+========================================= */
+
+#goals-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.goal-card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.goal-card p {
+  margin-bottom: 8px;
+  color: #5d6178;
+  font-size: 14px;
+}
+
+.goal-card button,
+.primary-button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.goal-card button:hover,
+.primary-button:hover {
+  background: var(--primary-dark);
+}
+
+/* =========================================
+   RECOMMENDATION
+========================================= */
+
+.recommendation-card h3 {
+  margin-bottom: 15px;
+}
+
+.recommendation-card p {
+  margin-bottom: 9px;
+}
+
+.recommendation-card h4 {
+  margin: 20px 0 12px;
+}
+
+.allocation,
+.allocation-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.allocation p,
+.allocation-item,
+.recommendation-action {
+  padding: 16px;
+  border-radius: 10px;
+  background: #f5f5ff;
+}
+
+/* =========================================
+   HOLDINGS
+========================================= */
+
+#holdings-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#holdings-container > div {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+#holdings-container h3,
+#holdings-container h4 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+#holdings-container p {
+  margin-bottom: 6px;
+  color: #656a80;
+  font-size: 14px;
+}
+
+/* =========================================
+   TRANSACTIONS
+========================================= */
+
+#transactions-container,
+#transactionsContainer {
+  display: grid;
+  gap: 12px;
+}
+
+#transactions-container > div,
+#transactionsContainer > div {
+  padding: 18px 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow);
+  transition: 0.2s ease;
+}
+
+#transactions-container > div:hover,
+#transactionsContainer > div:hover {
+  border-color: #d5d5f7;
+  transform: translateY(-2px);
+}
+
+#transactions-container h3,
+#transactionsContainer h3 {
+  margin-bottom: 7px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+#transactions-container p,
+#transactionsContainer p {
+  margin-bottom: 4px;
+  color: #646980;
+  font-size: 13px;
+}
+
+/* =========================================
+   FORMS
+========================================= */
+
+.form-row {
+  display: flex;
+  gap: 18px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #51566e;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fafaff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91, 92, 226, 0.1);
+}
+
+#transaction-message {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+.table-wrapper,
+.transactions-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.data-table,
+.transactions-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.transactions-table th {
+  padding: 15px 18px;
+  background: #f5f5ff;
+  color: #62667d;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table td,
+.transactions-table td {
+  padding: 15px 18px;
+  border-top: 1px solid #f0f0f5;
+  color: #454a62;
+  font-size: 13px;
+}
+
+.data-table tbody tr:hover,
+.transactions-table tbody tr:hover {
+  background: #fafaff;
+}
+
+/* =========================================
+   TRANSACTIONS PAGE
+========================================= */
+
+.transactions-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.transactions-page h1 {
+  margin-bottom: 8px;
+}
+
+.transactions-page p {
+  color: var(--muted);
+}
+
+.transactions-table-container {
+  margin-top: 25px;
+}
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.error-message {
+  color: var(--red) !important;
+  font-weight: 600;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 215px;
+  }
+
+  .dashboard-content {
+    margin-left: 215px;
+  }
+
+  main {
+    padding: 30px 25px;
+  }
+
+  .summary-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #goals-container,
+  #holdings-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-bottom {
+    margin-top: 20px;
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+  }
+
+  .topbar {
+    padding: 20px;
+  }
+
+  .topbar h1 {
+    font-size: 21px;
+  }
+
+  main {
+    padding: 22px 16px;
+  }
+
+  .summary-container,
+  #goals-container,
+  #holdings-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .allocation,
+  .allocation-container {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-details {
+    gap: 25px;
+  }
+
+  .login-container {
+    padding: 30px 24px;
+  }
+}
+
+/* ============================= */
+/* TRANSACTIONS TABLE */
+/* ============================= */
+
+.transactions-section {
+  margin-top: 32px;
+}
+
+.transactions-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  text-align: left;
+}
+
+.transactions-table thead {
+  background: #f8fafc;
+}
+
+.transactions-table th {
+  padding: 16px 20px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions-table td {
+  padding: 18px 20px;
+  color: #334155;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap;
+}
+
+.transactions-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.transactions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.transaction-type {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.transaction-type.buy {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.transaction-type.sell {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.transaction-type.deposit,
+.transaction-type.dividend {
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+.transaction-type.withdrawal {
+  color: #b45309;
+  background: #fef3c7;
+}
+
+.empty-transactions {
+  padding: 30px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* ========================================
+   NEXGILE WEALTHAGENT LOGIN PAGE
+======================================== */
+
+.login-page {
+  min-height: 100vh;
+  background: #f4f7f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 1180px;
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(4, 55, 52, 0.12);
+}
+
+/* ========================================
+   LEFT LOGIN FORM
+======================================== */
+
+.login-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px;
+  background: #ffffff;
+}
+
+.login-form-content {
+  width: 100%;
+  max-width: 390px;
+}
+
+.login-brand,
+.info-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.login-brand {
+  color: #073f40;
+  margin-bottom: 65px;
+}
+
+.brand-symbol {
+  color: #0c7771;
+  font-size: 28px;
+}
+
+.login-form-content h1 {
+  margin: 0 0 14px;
+  color: #102f30;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.login-subtitle {
+  margin: 0 0 35px;
+  color: #718181;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-group label {
+  color: #244747;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid #d6e2e0;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #193b3b;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #a0b0ae;
+}
+
+.form-group input:focus {
+  border-color: #08716d;
+  box-shadow: 0 0 0 3px rgba(8, 113, 109, 0.1);
+}
+
+.login-button {
+  width: 100%;
+  height: 53px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 9px;
+  background: #074e50;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.login-button:hover {
+  background: #096b68;
+  transform: translateY(-1px);
+}
+
+.login-button:disabled {
+  background: #8ba9a7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-error {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #c0392b;
+  font-size: 13px;
+}
+
+.login-footer {
+  margin-top: 35px;
+  color: #9aabaa;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ========================================
+   RIGHT BRANDING SECTION
+======================================== */
+
+.login-info-section {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 65px;
+  background: linear-gradient(135deg, #073f40, #0b7771);
+  color: #ffffff;
+}
+
+.info-content {
+  position: relative;
+  z-index: 2;
+  max-width: 440px;
+}
+
+.info-brand {
+  margin-bottom: 75px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.info-brand .brand-symbol {
+  color: #b4e3d6;
+}
+
+.info-content h2 {
+  margin: 0 0 25px;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.info-content p {
+  max-width: 390px;
+  margin: 0;
+  color: #c4e2dd;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.info-features {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 40px;
+  color: #e0f2ed;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info-decoration {
+  position: absolute;
+  right: -35px;
+  bottom: 35px;
+  display: flex;
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 90px;
+  transform: rotate(-25deg);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+  .login-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .login-info-section {
+    display: none;
+  }
+
+  .login-form-section {
+    padding: 45px 35px;
+  }
+
+  .login-brand {
+    margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-form-section {
+    padding: 35px 25px;
+  }
+
+  .login-form-content h1 {
+    font-size: 30px;
+  }
+}
+/* Compact Login Page */
+
+.login-page {
+  padding: 20px;
+}
+
+.login-wrapper {
+  max-width: 950px;
+  min-height: 570px;
+  border-radius: 16px;
+}
+
+.login-form-section {
+  padding: 35px 45px;
+}
+
+.login-brand {
+  margin-bottom: 35px;
+}
+
+.login-form-content h1 {
+  font-size: 32px;
+}
+
+.login-subtitle {
+  margin-bottom: 25px;
+}
+
+.login-form {
+  gap: 16px;
+}
+
+.form-group input {
+  height: 45px;
+}
+
+.login-button {
+  height: 46px;
+}
+
+.login-info-section {
+  padding: 40px;
+}
+
+.info-brand {
+  margin-bottom: 40px;
+}
+
+.info-content h2 {
+  font-size: 36px;
+}
+
+.register-link {
+  margin-top: 22px;
+  color: #718181;
+  font-size: 13px;
+  text-align: center;
+}
+
+.register-link span {
+  color: #075f5c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-link span:hover {
+  text-decoration: underline;
+}
+.register-success {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #e8f7ef;
+  color: #167044;
+  font-size: 13px;
 }
