@@ -23,13 +23,9 @@ api.interceptors.response.use(
 
   (error) => {
     if (error.response?.status === 401) {
-      const message = error.response?.data?.msg || "";
+      localStorage.removeItem("access_token");
 
-      if (
-        message.toLowerCase().includes("expired") ||
-        message.toLowerCase().includes("signature")
-      ) {
-        localStorage.removeItem("access_token");
+      if (window.location.pathname !== "/login") {
         window.location.href = "/login";
       }
     }
